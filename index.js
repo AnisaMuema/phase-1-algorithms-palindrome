@@ -1,29 +1,49 @@
 
-function isPalindrome(mom) {
+// function palindromeWord(word){
+//   return word.split("").reverse().join("")
+   
+// }
+
+function isPalindrome(word) {
   // Write your algorithm here
-  if(mom){
-    return mom;
+  //  const reversedWord = palindromeWord()
+
+  //  return word === reversedWord
+
+  for(let startIndex = 0; startIndex < word.length/2; startIndex ++){
+    const endIndex = word.length - 1 - startIndex;
+    if(word[startIndex] !== word[endIndex]){
+      return false;
+    }
+
   }
-  else{
-    return robot
-  }
+  return true;
 }
 /* 
   Add your pseudocode here
-  
-  Initalize mom as an arguement in "isPalindrome" function
-  Add noon as the condition in the IF statement
-  return mom if true
-  else return robot if false
+  (noon === noon) // true
+  (boy === yob) // false
+
+  return output true if the input is the spelled and pronounced the same backwards 
+
+  if(noon){
+    return true; 
+  }
+  else{
+    return false;
+  }
+ 
 */
 
 /*
   Add written explanation of your solution here
-The passed arguement as string "mom" in the function "isPalindrome" is used 
-as the condition in the if statement. 
-Meaning, if the conditions are met then the output should me mom.
-Else output will be robot
+  The function isPalindrome recieves only one arguemnt in string form as input.
+   If its output is spellted the same backwards as it is forward. 
+   That means the first letter is the same as the last, the second letter is the same as the second last
+   and so on till the middle letter is reached. 
 
+   to do that, we iterate the word from the beginning of the string, comparing the letters, till the end. 
+   to calculate the output, subtract 1 and the length of the starting of the word
 */
 
 // You can run `node index.js` to view these console logs
@@ -36,6 +56,16 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", isPalindrome("robot"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("noon"));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", isPalindrome("boy"));
 }
 
 module.exports = isPalindrome;
